@@ -36,3 +36,17 @@
     transform: rotate(360deg);
   }
 }
+
+.formlogin {
+  /* display: flex; */
+  display: grid;
+  align-items: center;
+  padding-top: 30px;
+  
+}
+
+.login-header {
+  display: flex;
+  justify-content: center;
+  padding-top: 30px;
+}
