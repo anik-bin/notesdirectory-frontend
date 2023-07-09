@@ -25,20 +25,26 @@ function App() {
   }
   return (
     <>
-      <NoteState>
-        <BrowserRouter>
-          <Navbar />
-          <Alert alert={alert} />
+      <div className="header">
+        <div>
           <div className="container">
-            <Routes>
-              <Route path="/" element={<Home showAlert={showAlert} />} />
-              <Route path="About/*" element={<About />} />
-              <Route path="Login/*" element={<Login showAlert={showAlert} />} />
-              <Route path="Signup/*" element={<Signup showAlert={showAlert} />} />
-            </Routes>
+            <NoteState>
+              <BrowserRouter>
+                <Navbar />
+                <Alert alert={alert} />
+                <div className="container">
+                  <Routes>
+                    <Route path="/" element={<Home showAlert={showAlert} />} />
+                    <Route path="About/*" element={<About />} />
+                    <Route path="Login/*" element={<Login showAlert={showAlert} />} />
+                    <Route path="Signup/*" element={<Signup showAlert={showAlert} />} />
+                  </Routes>
+                </div>
+              </BrowserRouter>
+            </NoteState>
           </div>
-        </BrowserRouter>
-      </NoteState>
+        </div>
+      </div>
     </>
   );
 }
