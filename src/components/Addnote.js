@@ -1,4 +1,4 @@
-import React, {useState, useContext} from 'react'
+import React, { useState, useContext } from 'react'
 import NoteContext from '../context/notes/NoteContext';
 
 const Addnote = (props) => {
@@ -18,24 +18,32 @@ const Addnote = (props) => {
     }
 
     return (
-        <div className="container my-3">
-            <h2>Add a Note</h2>
-            <form className='my-3'>
-                <div className="mb-3">
-                    <label htmlFor="title" className="form-label">Title</label>
-                    <input type="text" className="form-control" id="title" name="title" aria-describedby="emailHelp" value={note.title} onChange={onChange} minLength={5} required/>
+        <>
+            <div className="header">
+                <div>
+                    <div className="container" style={{marginTop: "80px"}}>
+                        <h2>Add a Note</h2>
+                        <form action="" method='get'>
+                            <div class="note-form">
+                                <label for="name">Title: </label>
+                                <input type="text" name="title" id="title" value={note.title} onChange={onChange} minLength={5} required />
+                            </div>
+                            <div class="note-form">
+                                <label for="name">Description: </label>
+                                <input type="text" name="description" id="description" value={note.description} onChange={onChange} minLength={5} required />
+                            </div>
+                            <div class="note-form">
+                                <label for="name">Tag: </label>
+                                <input type="text" name="tag" id="tag" value={note.tag} onChange={onChange} required />
+                            </div>
+
+                            <button type="submit" disabled={note.title.length < 5 || note.description.length < 5} onClick={handleClick} className='btn-2' style={{marginTop: "15px"}}>Add Note</button>
+                        </form>
+                    </div>
                 </div>
-                <div className="mb-3">
-                    <label htmlFor="description" className="form-label">Description</label>
-                    <input type="text" className="form-control" id="description" name="description" value={note.description} onChange={onChange} minLength={5} required/>
-                </div>
-                <div className="mb-3">
-                    <label htmlFor="tag" className="form-label">Tag</label>
-                    <input type="text" className="form-control" id="tag" name="tag" value={note.tag} onChange={onChange} />
-                </div>
-                <button disabled={note.title.length<5 || note.description.length<5} type="submit" className="btn btn-primary" onClick={handleClick}>Add Note</button>
-            </form>
-        </div>
+            </div>
+        </>
+
     )
 }
 
