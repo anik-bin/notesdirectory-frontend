@@ -1,4 +1,4 @@
-import React, {useContext} from 'react'
+import React, { useContext } from 'react'
 import NoteContext from '../context/notes/NoteContext';
 
 const Noteitem = (props) => {
@@ -6,20 +6,17 @@ const Noteitem = (props) => {
     const { deleteNote } = context;
     const { note, updateNote } = props
     return (
-        <div className='col-md-3'>
-            <div className="card my-3">
-                <div className="card-body">
-                    <div className="d-flex align-items-center">
-                        <h5 className="card-title">{note.title}</h5>
-                        <i className="fa-solid fa-trash mx-2" onClick={() => {deleteNote(note._id); props.showAlert("Note deleted successfully", "success");}}></i>
-                        <i className="fa-solid fa-pen-to-square mx-2" onClick={()=>{updateNote(note)}}></i>
-                    </div>
+        <>
+            <div className='card-container'>
 
-                    <p className="card-text">{note.description}</p>
+                <h4>{note.title}</h4>
+                <p>{note.description}</p>
 
-                </div>
+                <button type="button" onClick={() => { updateNote(note) }} style={{ marginRight: "5px" }}>Edit Note</button>
+                <button type="button" onClick={() => { deleteNote(note._id); props.showAlert("Note deleted successfully", "success"); }}>Delete Note</button>
             </div>
-        </div>
+
+        </>
     )
 }
 

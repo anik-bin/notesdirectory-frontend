@@ -40,52 +40,81 @@ const Notes = (props) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
 
+    useEffect(() => {
+        const modal = document.getElementById("myModal");
+        const btn = document.getElementById("myBtn");
+        const span = document.getElementsByClassName("close")[0];
+
+        const openModal = () => {
+            modal.style.display = "block";
+        };
+
+        const closeModal = () => {
+            modal.style.display = "none";
+        };
+
+        const closeOutsideModal = (event) => {
+            if (event.target === modal) {
+                modal.style.display = "none";
+            }
+        };
+
+        btn.addEventListener("click", openModal);
+        span.addEventListener("click", closeModal);
+        window.addEventListener("click", closeOutsideModal);
+
+        return () => {
+            btn.removeEventListener("click", openModal);
+            span.removeEventListener("click", closeModal);
+            window.removeEventListener("click", closeOutsideModal);
+        };
+    }, []);
+
+
     return (
         <>
             <Addnote showAlert={props.showAlert} />
-            <button ref={ref} type="button" className="btn btn-primary d-none" data-bs-toggle="modal" data-bs-target="#exampleModal">
-                Launch demo modal
-            </button>
-            <div className="modal fade" id="exampleModal" tabIndex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
-                <div className="modal-dialog">
-                    <div className="modal-content">
-                        <div className="modal-header">
-                            <h5 className="modal-title" id="exampleModalLabel">Edit Note</h5>
-                            <button type="button" className="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-                        </div>
-                        <div className="modal-body">
-                            <form className='my-3'>
-                                <div className="mb-3">
-                                    <label htmlFor="etitle" className="form-label">Title</label>
-                                    <input type="text" className="form-control" id="etitle" name="etitle" value={note.etitle} aria-describedby="emailHelp" onChange={onChange} minLength={5} required />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="edescription" className="form-label">Description</label>
-                                    <input type="text" className="form-control" id="edescription" name="edescription" value={note.edescription} onChange={onChange} minLength={5} required />
-                                </div>
-                                <div className="mb-3">
-                                    <label htmlFor="etag" className="form-label">Tag</label>
-                                    <input type="text" className="form-control" id="etag" name="etag" value={note.etag} onChange={onChange} />
-                                </div>
 
-                            </form>
+            <button style={{ display: "none" }} id="myBtn" ref={ref}>Open Modal</button>
+
+            <div id="myModal" class="modal">
+
+                <div class="modal-content">
+                    <span class="close" ref={refClose}>&times;</span>
+                    <h3>Edit Note</h3>
+                    <form action="" method='get'>
+                        <div class="note-form">
+                            <label htmlFor="etitle">Title: </label>
+                            <input type="text" name="etitle" id="etitle" value={note.etitle} onChange={onChange} minLength={5} required />
                         </div>
-                        <div className="modal-footer">
-                            <button ref={refClose} type="button" className="btn btn-secondary" data-bs-dismiss="modal">Close</button>
-                            <button disabled={note.etitle.length < 5 || note.edescription.length < 5} type="button" onClick={handleClick} className="btn btn-primary">Update Note</button>
+                        <div class="note-form">
+                            <label htmlFor="edescription">Description: </label>
+                            <input type="text" name="edescription" id="edescription" value={note.edescription} onChange={onChange} minLength={5} required />
                         </div>
-                    </div>
+                        <div class="note-form">
+                            <label htmlFor="etag">Tag: </label>
+                            <input type="text" name="etag" id="etag" value={note.etag} onChange={onChange} />
+                        </div>
+                    </form>
+                    <button disabled={note.etitle.length < 5 || note.edescription.length < 5} type="button" onClick={handleClick}>Update Note</button>
                 </div>
+
             </div>
-            <div className="container row my-3">
+
+            <div className="container">
                 <h2>Your Notes</h2>
-                <div className="container">
+                <div>
                     {notes.length === 0 && 'No notes to display'}
                 </div>
-                {notes.map((note) => {
-                    return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
-                })}
+                <div className='note-container'>
+                    {notes.map((note) => {
+                        return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
+                    })}
+                </div>
             </div>
+
+
+
         </>
     )
 }
