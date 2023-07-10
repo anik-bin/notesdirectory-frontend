@@ -8,7 +8,7 @@ This is the code for the frontend part of the application.
 ## How to install it locally on your machine
 
 1. Fork this project and clone it in your local machine
-2. In the terminal type `npm i`. This will install all the necessary packages.
+2. In the terminal type `npm i`. This will install all the necessary packages. (You should have Nodejs installed in your local machine)
 3. Create an .env file in the root of your project and add the following line `REACT_APP_HOST=http://localhost:4000`
 
 Your frontend now has been setup. You can run it by typing `npm start`
