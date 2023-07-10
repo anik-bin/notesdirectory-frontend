@@ -1,4 +1,5 @@
 # Welcome to Notes Directory
+![notesdirectory-github-image](https://github.com/anik-bin/notesdirectory-frontend/assets/65410444/35aa51c2-0b07-4fd1-891f-f406e50bcf7a)
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
