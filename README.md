@@ -23,7 +23,3 @@ You may also see any lint errors in the console.
 
 This repository only contains the frontend code. To fully run the application you need to setup the backend code as well.
 Link for the [backend repository](https://github.com/anik-bin/notesdirectory-backend)
-
-### Note
-
-Both the frontend and backend code should be in one directory
