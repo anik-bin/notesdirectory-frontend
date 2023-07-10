@@ -21,7 +21,7 @@ const Addnote = (props) => {
         <>
             <div className="header">
                 <div>
-                    <div className="container" style={{marginTop: "80px"}}>
+                    <div className="container" style={{marginTop: "20px"}}>
                         <h2>Add a Note</h2>
                         <form action="" method='get'>
                             <div class="note-form">

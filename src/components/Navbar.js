@@ -12,7 +12,7 @@ const Navbar = () => {
     return (
         <>
             <nav className="nav-header">
-                <a className="nav-header-heading" href="/">Aniket Bindhani</a>
+                <Link className="nav-header-heading" to="/">Aniket Bindhani</Link>
                 <div className="nav-header-links">
                     <ul>
                         <li><Link className={`nav-link ${location.pathname === "/" ? "active" : ""}`} to="/">Home</Link></li>
