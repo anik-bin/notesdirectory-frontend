@@ -40,6 +40,8 @@ const Notes = (props) => {
         setNote({ ...note, [e.target.name]: e.target.value })
     }
 
+    // This is the code for the modal which would open when we update a note
+
     useEffect(() => {
         const modal = document.getElementById("myModal");
         const btn = document.getElementById("myBtn");
