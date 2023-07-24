@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom'
+import { toast } from 'react-hot-toast'
 
-const Signup = (props) => {
+const Signup = () => {
     // const host = process.env.REACT_APP_HOST
     const [credentials, setCredentials] = useState({ name: "", email: "", password: "", cpassword: "" })
     let navigate = useNavigate();
@@ -22,10 +23,10 @@ const Signup = (props) => {
             // redirect user and save the auth token
             localStorage.setItem('token', json.authtoken);
             navigate("/");
-            props.showAlert("You have successfully created your account", "success")
+            toast.success('You have successfully created your account');
         }
         else {
-            props.showAlert("Invalid Credentials", "danger")
+            toast.error("Invalid Details")
         }
 
     }

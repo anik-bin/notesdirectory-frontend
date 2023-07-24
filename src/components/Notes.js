@@ -3,8 +3,9 @@ import NoteContext from '../context/notes/NoteContext';
 import { useNavigate } from 'react-router-dom';
 import Addnote from './Addnote';
 import Noteitem from './Noteitem';
+import { toast } from 'react-hot-toast';
 
-const Notes = (props) => {
+const Notes = () => {
 
     const context = useContext(NoteContext);
     let navigate = useNavigate();
@@ -33,7 +34,7 @@ const Notes = (props) => {
     const handleClick = (e) => {
         editNote(note.id, note.etitle, note.edescription, note.etag);
         refClose.current.click();
-        props.showAlert("Note updated successfully", "success")
+        toast.success('Note updated successfully');
     }
 
     const onChange = (e) => {
@@ -75,7 +76,7 @@ const Notes = (props) => {
 
     return (
         <>
-            <Addnote showAlert={props.showAlert} />
+            <Addnote/>
 
             <button style={{ display: "none" }} id="myBtn" ref={ref}>Open Modal</button>
 
@@ -110,7 +111,7 @@ const Notes = (props) => {
                 </div>
                 <div className='note-container'>
                     {notes.map((note) => {
-                        return <Noteitem key={note._id} updateNote={updateNote} showAlert={props.showAlert} note={note} />;
+                        return <Noteitem key={note._id} updateNote={updateNote} note={note} />;
                     })}
                 </div>
             </div>

@@ -27,7 +27,6 @@ const Navbar = () => {
                     <button type="button" className='btn-1'><Link to="/login">Login</Link></button>
                     <button type="button" className='btn-2'><Link to="/signup">Signup</Link></button>
                 </form> : <button type="button" className='btn-2' onClick={handleLogout}>Logout</button>}
-
                 
             </div>
             </nav>

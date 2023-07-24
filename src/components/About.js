@@ -26,9 +26,6 @@ const About = () => {
                     4. Flexibility to Modify and Delete: We believe in giving you complete control over your notes. With NotesDirectory, you have the freedom to modify and update your notes whenever you want. Made a mistake or need to add new information? No problem! Simply edit your notes, and the changes will be saved automatically. And if you no longer need a particular note, you can delete it with just a few clicks.
                     <br />
                     <br />
-                    5. Collaborative Features (Optional): In addition to being a powerful personal note-taking tool, NotesDirectory also offers optional collaboration features. You can choose to share specific notes or entire folders with friends, colleagues, or classmates, allowing for seamless collaboration and productivity.
-                    <br />
-                    <br />
                     <b>Join NotesDirectory Today!</b></p>
             </div>
         </>

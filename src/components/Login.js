@@ -1,7 +1,8 @@
 import React, { useState } from 'react'
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
 
-const Login = (props) => {
+const Login = () => {
 
     const host = process.env.REACT_APP_HOST
     const [credentials, setCredentials] = useState({ email: "", password: "" })
@@ -24,11 +25,11 @@ const Login = (props) => {
         if (json.success) {
             // redirect user and save the auth token
             localStorage.setItem('token', json.authtoken);
-            props.showAlert("Logged In Successfully", "success")
+            toast.success('Logged In successfully');
             navigate("/");
         }
         else {
-            props.showAlert("Invalid Details", "danger")
+            toast.error("Invalid Details")
         }
 
     }

@@ -7,24 +7,11 @@ import Contact from './components/Contact';
 import Login from './components/Login';
 import Signup from './components/Signup';
 import NoteState from './context/notes/NoteState';
-import Alert from './components/Alert';
+import { Toaster } from 'react-hot-toast';
 import Footer from './components/Footer';
-import { useState } from 'react';
 
 function App() {
 
-  const [alert, setAlert] = useState(null)
-
-  const showAlert = (message, type) => {
-    setAlert({
-      msg: message,
-      type: type
-    })
-
-    setTimeout(() => {
-      setAlert(null)
-    }, 2000);
-  }
   return (
     <>
       <div className="header">
@@ -33,14 +20,14 @@ function App() {
             <NoteState>
               <BrowserRouter>
                 <Navbar />
-                <Alert alert={alert} />
                 <div className="container">
+                  <Toaster position="top-right" />
                   <Routes>
-                    <Route path="/" element={<Home showAlert={showAlert} />} />
+                    <Route path="/" element={<Home />} />
                     <Route path="About/*" element={<About />} />
                     <Route path="Contact/*" element={<Contact />} />
-                    <Route path="Login/*" element={<Login showAlert={showAlert} />} />
-                    <Route path="Signup/*" element={<Signup showAlert={showAlert} />} />
+                    <Route path="Login/*" element={<Login />} />
+                    <Route path="Signup/*" element={<Signup />} />
                   </Routes>
                 </div>
                 <Footer />
