@@ -184,3 +184,113 @@ nav ul li a:hover::after {
   text-decoration: none;
   cursor: pointer;
 }
+
+/* Mobile and Tablet Styles */
+
+@media screen and (max-width: 768px) {
+
+  /* Navbar */
+  .nav-header {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .nav-header-heading {
+    font-size: 1.5rem;
+  }
+
+  .nav-header-links {
+    flex-direction: column;
+    margin-top: 1rem;
+  }
+
+  .nav-header-links .btn-1 {
+    margin-right: 0;
+    margin-bottom: 10px;
+  }
+
+  /* Form for Adding a Note */
+  .note-form input {
+    width: 100%;
+    box-sizing: border-box;
+    padding: 10px 10px;
+    margin: 10px 0;
+    border: 2px solid black;
+    border-radius: 4px;
+  }
+
+  /* Notes in Form of Cards */
+  .note-container {
+    justify-content: center;
+  }
+
+  .card-container {
+    width: 100%;
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    width: 90%;
+  }
+
+}
+
+/* Large Desktop Styles */
+
+@media screen and (min-width: 1200px) {
+
+  /* Navbar */
+  .nav-header {
+    margin-top: 3rem;
+  }
+
+  .nav-header-heading {
+    font-size: 2.5rem;
+  }
+
+  .nav-header-links .btn-2 {
+    margin-left: auto;
+  }
+
+  /* Form for Adding a Note */
+  .note-form input {
+    width: 100%;
+  }
+
+  /* Notes in Form of Cards */
+  .note-container {
+    justify-content: flex-start;
+  }
+
+  .card-container {
+    width: calc(33.33% - 24px);
+  }
+
+  /* Modal Content/Box */
+  .modal-content {
+    width: 50%;
+  }
+
+}
+
+/* Medium Desktop Styles */
+
+@media screen and (min-width: 992px) and (max-width: 1199px) {
+
+  /* Notes in Form of Cards */
+  .card-container {
+    width: calc(50% - 16px);
+  }
+
+}
+
+/* Small Desktop Styles */
+
+@media screen and (min-width: 769px) and (max-width: 991px) {
+
+  /* Notes in Form of Cards */
+  .card-container {
+    width: calc(50% - 12px);
+  }
+
+}
